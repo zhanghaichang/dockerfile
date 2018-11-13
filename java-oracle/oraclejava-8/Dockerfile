@@ -1,7 +1,3 @@
-# LICENSE UPL 1.0
-#
-# Copyright (c) 2015 Oracle and/or its affiliates. All rights reserved.
-#
 FROM oraclelinux:7-slim
 
 MAINTAINER Aurelio Garcia-Ribeyro <aurelio.garciaribeyro@oracle.com>
