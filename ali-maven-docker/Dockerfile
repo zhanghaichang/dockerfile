@@ -1,7 +1,7 @@
 FROM maven:3.5.4-jdk-8-alpine
 MAINTAINER zhanghaichang
 
-COPY settings.xml /usr/share/maven/ref/
+COPY settings-docker.xml /usr/share/maven/ref/
 RUN apk add --no-cache \
         ca-certificates \
         curl \
