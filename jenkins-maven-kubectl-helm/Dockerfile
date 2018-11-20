@@ -15,6 +15,11 @@ ENV MAVEN_VERSION=${MAVEN_VERSION} \
 
 COPY settings.xml $M2_HOME/conf/settings.xml
 
+# Install Docker
+RUN apt-get -qq update && \
+    apt-get -qq -y install curl && \
+    curl -sSL https://get.docker.com/ | sh
+    
 RUN rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone
 
