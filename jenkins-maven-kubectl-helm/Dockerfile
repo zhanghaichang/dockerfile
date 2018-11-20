@@ -10,8 +10,8 @@ RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apac
 ENV MAVEN_VERSION=${MAVEN_VERSION} \
     M2_HOME=/usr/share/maven \
     maven.home=$M2_HOME \
-    M2= $M2_HOME/bin \
-    PATH= $M2:$PATH
+    M2=$M2_HOME/bin \
+    PATH=$M2:$PATH
 
 COPY settings.xml $M2_HOME/conf/settings.xml
 
