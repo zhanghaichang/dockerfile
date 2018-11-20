@@ -19,11 +19,6 @@ COPY settings.xml $M2_HOME/conf/settings.xml
 RUN rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo 'Asia/Shanghai' > /etc/timezone
 
-# Install Docker
-RUN apt-get -qq update && \
-    apt-get -qq -y install curl && \
-    curl -sSL https://get.docker.com/ | sh
-
 # Install kubectl and helm
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
