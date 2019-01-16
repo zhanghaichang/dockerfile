@@ -22,6 +22,18 @@ RUN apt-get -qq update && \
     
 RUN rm -rf /etc/localtime && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' > /etc/timezone
+    
+# install node v10
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs \
+    && node --version
+
+# setting npm global path
+ENV PATH $PATH:/home/jenkins/.npm-global/bin
+RUN mkdir ~/.npm-global  \
+    && npm config set prefix '~/.npm-global' \
+	  && npm config set registry http://172.18.161.165:8081/repository/npm-all/
+  
 
 # Install kubectl and helm
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && \
